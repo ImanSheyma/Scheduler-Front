@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="form-container">
+        <form class="p-3 m-3">
+            <div class="form-row pb-3">
+                <!--Employee selector-->
+                <div class="input-group">
+                    <span class="input-group-text">Сотрудник</span>
+                    <select id="employee" class="form-control">
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row pb-3">
+                <!--Date-->
+                <div class="input-group">
+                    <span class="input-group-text">с</span>
+                    <input id="startDate" class="form-control" type="date"/>
+
+                    <span class="input-group-text">по</span>
+                    <input id="endDate" class="form-control" type="date"/>
+                </div>
+            </div>
+            <button type="submit" id="submit" class="btn btn-primary float-end" onclick={getEmployees}>Показать задачи</button>
+        </form>
+    </div>
+
+    <div class="p-3">
+        <nav>
+            <ul class="nav nav-tabs" id="navTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="task-tab" data-bs-toggle="tab" href="#task" type="button" role="tab"
+                    aria-controls="task" aria-selected="true">Задачи</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="plan-tab" data-bs-toggle="tab" href="#plan" type="button" role="tab"
+                    aria-controls="plan" aria-selected="true">План</a>
+                </li>
+            </div>
+        </nav>
+        <div class="tab-content" id="tab-content">
+            <div class="tab-pane fade show active" id="task" role="tabpanel" aria-labelledby="task-tab">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Задача</th>
+                            <th scope="col">Дата начала</th>
+                            <th scope="col">Дата окончания</th>
+                            <th scope="col">Дата выполнения</th>
+                            <th scope="col">выполнена</th>
+                        </tr>
+                    </thead>
+                    <tbody id="task-table-body">
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="plan" role="tabpanel" aria-labelledby="plan-tab">
+                <table class="table table-striped-columns">
+                    <thead id="plan-table-head">
+                        <tr>
+                            <th scope="col">Задача</th>
+                        </tr>
+                    </thead>
+                    <tbody id="plan-table-body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous">
+    </script>
+    <script src="controller.js"></script>
+</body>
+
+</html>
