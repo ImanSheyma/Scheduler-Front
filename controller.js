@@ -62,13 +62,13 @@ function generatePlanTable(){
             taskStart = new Date(task.start);
             taskEnd = new Date(task.end);
             if(date > end) return;
-            do {
+            while(date <= end){
                 if(date >= taskStart && date <= taskEnd)
                     cols += `<td class="bg-primary" style="--bs-bg-opacity: .3;"></td>`
                 else
                     cols += `<td></td>`;
                 date.setDate(date.getDate()+1);
-            } while(date.toDateString() != end.toDateString())
+            }
             return cols;
         }
         data += `<tr>`+
@@ -84,10 +84,10 @@ function generateTaskTableHead(){
     date = new Date(dateStart);
     end = new Date(dateEnd);
     if(date > end) return;
-    do {
+    while(date <= end){
         cols += `<th>${date.getDate()}</th>`;
         date.setDate(date.getDate()+1);
-    } while(date.toDateString() != end.toDateString())
+    }
     planTableHead.innerHTML = `<tr><th>Задача</th>${cols}</tr>`
 }
 
