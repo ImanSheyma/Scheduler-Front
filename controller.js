@@ -61,7 +61,7 @@ function generatePlanTable(){
             end = new Date(dateEnd);
             taskStart = new Date(task.start);
             taskEnd = new Date(task.end);
-
+            if(date > end) return;
             while(date.toDateString() != end.toDateString()){
                 if(date >= taskStart && date <= taskEnd)
                     cols += `<td class="bg-primary" style="--bs-bg-opacity: .3;"></td>`
@@ -83,6 +83,7 @@ function generateTaskTableHead(){
     cols = ``;
     date = new Date(dateStart);
     end = new Date(dateEnd);
+    if(date > end) return;
     while(date.toDateString() != end.toDateString()){
         cols += `<th>${date.getDate()}</th>`;
         date.setDate(date.getDate()+1);
